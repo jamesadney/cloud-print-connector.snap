@@ -1,0 +1,36 @@
+name: cloud-print-connector
+version: 1
+summary: Google Cloud Print Connector
+description: >
+  Share printers from your Windows, Linux, FreeBSD or OS X computer with
+  ChromeOS and Android devices, using the Cloud Print Connector. The Connector
+  is a purpose-built system process. It can share hundreds of printers on a
+  powerful server, or one printer on a Raspberry Pi.
+confinement: strict
+
+apps:
+  gcp-cups-connector:
+    command: bin/gcp-cups-connector
+    daemon: simple
+  gcp-connector-util:
+    command: bin/gcp-connector-util
+
+parts:
+  cloud-print-connector:
+    plugin: go
+    source: git@github.com:google/cloud-print-connector.git
+    go-packages:
+      - "github.com/google/cloud-print-connector/gcp-cups-connector"
+      - "github.com/google/cloud-print-connector/gcp-connector-util"
+    build-packages:
+      - build-essential
+      - libcups2-dev
+      - libavahi-client-dev
+      - git
+      - bzr
+    stage-packages:
+      - cups
+      - libcups2
+      - libavahi-client3
+      - avahi-daemon
+      - libsnmp30
