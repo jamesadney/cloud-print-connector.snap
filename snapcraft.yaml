@@ -12,8 +12,16 @@ apps:
   gcp-cups-connector:
     command: bin/gcp-cups-connector
     daemon: simple
+    plugs:
+      - cups-control
+      - network
+      - network-bind
   gcp-connector-util:
     command: bin/gcp-connector-util
+    plugs:
+      - cups-control
+      - network
+      - network-bind
 
 parts:
   cloud-print-connector:
