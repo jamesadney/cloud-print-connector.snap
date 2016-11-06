@@ -1,0 +1,2 @@
+1. see how cups connector uses dbus.
+2. figure out how to allow our app to do that in strict mode.
