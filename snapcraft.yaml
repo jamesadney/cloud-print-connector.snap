@@ -26,7 +26,7 @@ apps:
 parts:
   cloud-print-connector:
     plugin: go
-    source: git@github.com:google/cloud-print-connector.git
+    source: https://github.com/google/cloud-print-connector.git
     go-packages:
       - "github.com/google/cloud-print-connector/gcp-cups-connector"
       - "github.com/google/cloud-print-connector/gcp-connector-util"
